@@ -41,7 +41,7 @@ public class HomeController {
 	public String login(String userName, String password,
 			HttpServletRequest request, HttpSession session) {
 		logger.info("/login is invoked");
-
+		session.setAttribute("admin", userName);
 		UsernamePasswordToken token = new UsernamePasswordToken(userName,
 				password);// 配置用户名/密码口令
 		try {

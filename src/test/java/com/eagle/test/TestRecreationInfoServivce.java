@@ -25,7 +25,7 @@ public class TestRecreationInfoServivce {
 	//@Test
 	public void testAdd(){
 		RecreationInfo info =new RecreationInfo();
-		info.setKeyWords("插花 文化");
+		//info.setKeyWords("插花 文化");
 		info.setReleaseTime(new Date(System.currentTimeMillis()));
 		info.setSource("99wang");
 		info.setContent("ceshi");
@@ -37,7 +37,7 @@ public class TestRecreationInfoServivce {
 	public void testUpdate(){
 		RecreationInfo info =new RecreationInfo();
 		info.setId(2);
-		info.setKeyWords("插花 文化 ");
+		//info.setKeyWords("插花 文化 ");
 		info.setReleaseTime(new Date(System.currentTimeMillis()));
 		info.setSource("shequ");
 		info.setContent("ceshi");

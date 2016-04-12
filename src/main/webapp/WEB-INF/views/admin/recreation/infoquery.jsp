@@ -6,12 +6,12 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="<%=basePath%>css/layout.css"
-	type="text/css" media="screen" />
+<link rel="stylesheet" href="<%=basePath %>css/layout.css" type="text/css" media="screen" />
 </head>
 <body>
 	<div id="head_content">
@@ -21,8 +21,14 @@
 		<jsp:include page="../common/sidebar.jsp"></jsp:include>
 	</div>
 	<div id="main_content">
-		<c:import url="/healthTip/query/0/9">
-		</c:import>
+		
+			<div id="content">
+				<div class="articletitle">${queryinfocontent.title}</div>
+				<div class="dateandauthor">日期：<fmt:formatDate value="${queryinfocontent.releaseTime}" pattern="yyyy-MM-dd  HH:MM"/>
+					【信息来源】作者：${queryinfocontent.source}</div>
+				<div id="articlecontent">${queryinfocontent.content}</div>
+			</div>
+	
 	</div>
 </body>
 </html>

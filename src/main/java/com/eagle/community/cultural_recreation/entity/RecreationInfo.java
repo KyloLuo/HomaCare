@@ -20,6 +20,7 @@ public class RecreationInfo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id")
 	private long id;
 	
 	@Column(name="title",length=100)
@@ -40,9 +41,7 @@ public class RecreationInfo {
 	@Column(name="source",length=50)
 	private String source;
 	
-	@Column(name="keyWords",length=20)
-	@NotBlank(message ="关键词不能为空")
-	private String keyWords;
+
 
 	public RecreationInfo() {
 		super();
@@ -96,13 +95,7 @@ public class RecreationInfo {
 		this.source = source;
 	}
 
-	public String getKeyWords() {
-		return keyWords;
-	}
 
-	public void setKeyWords(String keyWords) {
-		this.keyWords = keyWords;
-	}
 
 	
 	
@@ -132,7 +125,7 @@ public class RecreationInfo {
 	public String toString() {
 		return "RecreationInfo [id=" + id + ", title=" + title + ", content="
 				+ content + ", count=" + count + ", releaseTime=" + releaseTime
-				+ ", source=" + source + ", keyWord=" + keyWords + "]";
+				+ ", source=" + source + "]";
 	}
 
 }

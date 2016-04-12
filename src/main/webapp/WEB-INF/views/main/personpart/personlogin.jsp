@@ -112,7 +112,7 @@ html,body {
 					<div class="col-xs-12  ">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" id="username" name="username" class="form-control" placeholder="用户名">
+							<input type="text" id="userName" name="userName" class="form-control" placeholder="用户名">
 						</div>
 					</div>
 				</div>

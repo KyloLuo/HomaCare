@@ -1,6 +1,7 @@
 package com.eagle.community.health_profile.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -30,6 +31,8 @@ public class HealthProfileController {
 
 	/* 用户可以操作的部分 */
 
+	
+	
 	// 根据用户的id查看其健康档案信息，以json形式返回数据
 	@RequestMapping(value = "/{id}.json", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
@@ -45,16 +48,27 @@ public class HealthProfileController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView getProfile(@PathVariable("id") String userId) {
 		logger.info("getProfile is invoked ");
-
-		ModelAndView view = new ModelAndView("");// 试图名陈待定
+		System.out.println(userId);
+		ModelAndView view = new ModelAndView("main/personpart/personhealthprofile");// 试图名陈待定
 		HealthProfile profile = healthProfileService.getHealthProfile(userId);
-		view.addObject("", profile);// model中的属性名等待自定义
+		view.addObject("profile", profile);// model中的属性名等待自定义
 
 		return view;
 	}
+	
+	
 
 	/* 具有管理员权限才能操作的部分 */
 
+	@RequiresRoles(value = "admin")
+	@RequestMapping(value = "/add/{userid}", method = RequestMethod.GET)
+	public ModelAndView startAddHeathlProfile(@PathVariable("userid") String userid) {
+		ModelAndView hp = new ModelAndView("admin/user/addhealthinfo");
+		hp.addObject("userid",userid);
+		System.out.println(userid);
+		return hp;
+	}
+	
 	// 为某个用户创建健康档案
 	@RequiresRoles("admin")
 	@RequestMapping(value = "/create/{userId}", method = RequestMethod.POST)
@@ -64,10 +78,22 @@ public class HealthProfileController {
 			@RequestBody HealthProfile profile) {
 		logger.info("createProfile is invoked !");
 		// 待定的管理员权限控制部分
-
+		System.out.println("////////////////////////////"+userId);
 		HealthProfile healthProfile = healthProfileService.addHealthProfile(
 				userId, profile);
 		return healthProfile;
+	}
+	
+	@RequiresRoles("admin")
+	@RequestMapping(value = "/query/{id}", method = RequestMethod.GET)
+	public ModelAndView adminGetProfile(@PathVariable("id") String userId) {
+		logger.info("getProfile is invoked ");
+		System.out.println(userId);
+		ModelAndView view = new ModelAndView("admin/user/healthinfoquery");// 试图名陈待定
+		HealthProfile healthprofile = healthProfileService.getHealthProfile(userId);
+		view.addObject("healthprofile", healthprofile);// model中的属性名等待自定义
+
+		return view;
 	}
 
 	// 为某个用户更新健康档案信息,并以json形式返回更新过后的档案信息

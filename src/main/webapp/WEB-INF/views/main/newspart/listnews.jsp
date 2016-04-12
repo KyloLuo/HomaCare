@@ -34,10 +34,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul style="padding-left: 0px;margin-bottom: 0px;">
 					<li class="titleli"><a class="title" href="${pageContext.request.contextPath}/index.jsp">首页</a></li>
 					<li class="titleli"><a class="title" href="/Home-BasedCare/communityNews/listNews/0/15">社区动态</a></li>
-					<li class="titleli"><a class="title" href="#">服务信息</a></li>
+					<li class="titleli"><a class="title" href="/Home-BasedCare/annoucement/list/0/15">服务信息</a></li>
 					<li class="titleli"><a class="title" href="/Home-BasedCare/healthTip/listtips/0/15">健康知识</a></li>
-					<li class="titleli"><a class="title" href="#">文化娱乐</a></li>
-					<li class="titleli"><a class="title" href="#">个人登录</a></li>
+					<li class="titleli"><a class="title" href="/Home-BasedCare/recreationInfo/list/0/15">文化娱乐</a></li>
+					<li class="titleli"><a class="title" href="/Home-BasedCare/user/skiptologin">个人登录</a></li>
 				</ul>
 			</div>
 		</div>
@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 		<c:forEach items="${communityNews_pageInfo.news}" var="list">
 	 			<li class="infoli"><img  src="<%=basePath %>img/arrow1.png" >
 	 			   <a class="b" href="${pageContext.request.contextPath}/communityNews/${list.id}">${list.title }</a>
-	 			   <div class="date"> <fmt:formatDate value="${list.date}" pattern="yyyy-MM-dd HH:MM"/>
+	 			   <div class="date"> <fmt:formatDate value="${list.date}" pattern="yyyy-MM-dd "/>
 	 			   </div>
 	 			 </li>
 			</c:forEach>

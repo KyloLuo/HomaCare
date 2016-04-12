@@ -21,6 +21,13 @@
 
 
 <body>
+	<div id="head_content">
+		<jsp:include page="../common/head.jsp"></jsp:include>
+	</div>
+	<div id="sidebar_content">
+		<jsp:include page="../common/sidebar.jsp"></jsp:include>
+	</div>
+
 	<div id="listinfo_div">
     	<div id="info_div">
     		<ul >

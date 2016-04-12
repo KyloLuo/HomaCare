@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=gb2312"
-	pageEncoding="gb2312"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <style type="text/css">
@@ -19,19 +19,19 @@ body{
 }
 
 
-/* ÉçÇø¶¯Ì¬ */
+/* ç¤¾åŒºåŠ¨æ€ */
 .communityservice_div {
 
 	height: 100%;
 	width: 100%;
 
 }
-/* ÁĞ±íÖĞµÄµÚÒ»ÌõÏÂ»®ÏßhrÊôĞÔ*/
+/* åˆ—è¡¨ä¸­çš„ç¬¬ä¸€æ¡ä¸‹åˆ’çº¿hrå±æ€§*/
 .firstline {
 	width: 100%;
 	margin-bottom: 10px;
 }
-/*Ã¿¸öĞÅÏ¢µÄ±êÌâÀ¸£¨Èç£ºÉçÇø¶¯Ì¬£©*/
+/*æ¯ä¸ªä¿¡æ¯çš„æ ‡é¢˜æ ï¼ˆå¦‚ï¼šç¤¾åŒºåŠ¨æ€ï¼‰*/
 .column {
 	width: 90%;
 	height: 40px;
@@ -42,7 +42,7 @@ body{
 	color: blue;
 	font-weight: bold;
 }
-/*¸ü¶àµÄÁ´½ÓÉèÖÃ*/
+/*æ›´å¤šçš„é“¾æ¥è®¾ç½®*/
 a.a:link {
 	color: #ccc;
 }
@@ -64,14 +64,14 @@ a.a {
 	float: right;
 	margin-top: 10px;
 }
-/* Ê±¼äµÄÀàÑ¡ÔñÆ÷ */
+/* æ—¶é—´çš„ç±»é€‰æ‹©å™¨ */
 .timelocate {
 	float: right;
 	font-size: 10pt;
 	margin-lft: 10px;
 }
 
-/* ÁĞ±íÖĞµÄµÚÒ»ÌõÏÂ»®ÏßhrÊôĞÔ*/
+/* åˆ—è¡¨ä¸­çš„ç¬¬ä¸€æ¡ä¸‹åˆ’çº¿hrå±æ€§*/
 .remainline {
 	width: "90%";
 	margin-bottom: 10px;
@@ -85,7 +85,7 @@ a.a {
 <body>
 	<div class="communityservice_div">
 		<div class="column">
-			<em>ÉçÇø¶¯Ì¬</em> <a class="a" href="/Home-BasedCare/communityNews/listNews/0/15">>>¸ü¶à</a>
+			<em>ç¤¾åŒºåŠ¨æ€</em> <a class="a" href="/Home-BasedCare/communityNews/listNews/0/15">>>æ›´å¤š</a>
 		</div>
 		<hr class="firstline" />
 		<ul style="padding-right: 4px">

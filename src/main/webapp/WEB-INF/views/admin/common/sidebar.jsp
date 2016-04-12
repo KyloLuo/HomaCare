@@ -20,36 +20,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<ul class="toggle">
 			<li class="icn_new_article"><a 
 				href="${pageContext.request.contextPath}/communityNews/add">新添动态</a></li>
-			<li class="icn_categories"><a href="${pageContext.request.contextPath}/communityNews/query">查看</a></li>
+			<li class="icn_categories"><a href="${pageContext.request.contextPath}/communityNews/query/0/9">查看</a></li>
 		</ul>
 		
 		<h3>服务信息</h3>
 		
 		<ul class="toggle">
-			<li class="icn_new_article"><a href="#">新添信息</a></li>
-			<li class="icn_categories"><a href="#">查看</a></li>
+			<li class="icn_new_article"><a href="${pageContext.request.contextPath}/annoucement/add">新添信息</a></li>
+			<li class="icn_categories"><a href="${pageContext.request.contextPath}/annoucement/query/0/9">查看</a></li>
 		</ul>
 		
 		<h3>健康知识</h3>
 		
 		<ul class="toggle">
 			<li class="icn_new_article"><a href="${pageContext.request.contextPath}/healthTip/add">新添知识</a></li>
-			<li class="icn_categories"><a href="${pageContext.request.contextPath}/healthTip/query">查看</a></li>
+			<li class="icn_categories"><a href="${pageContext.request.contextPath}/healthTip/query/0/9">查看</a></li>
 		</ul>
 		
 		<h3>文化娱乐</h3>
 		
 		<ul class="toggle">
-			<li class="icn_new_article"><a href="#">新添信息</a></li>
-			<li class="icn_categories"><a href="#">查看</a></li>
+			<li class="icn_new_article"><a href="${pageContext.request.contextPath}/recreationInfo/add">新添信息</a></li>
+			<li class="icn_categories"><a href="${pageContext.request.contextPath}/recreationInfo/query/0/9">查看</a></li>
 		</ul>
 		
 		<h3>用户信息</h3>
 		
 		<ul class="toggle">
 			<li class="icn_add_user"><a href="${pageContext.request.contextPath}/user/add">新添用户</a></li>
-			<li class="icn_view_users"><a href="#">健康档案</a></li>
-			<li class="icn_profile"><a href="#">查看</a></li>
+			<li class="icn_profile"><a href="${pageContext.request.contextPath}/user/query/0/7">查看用户</a></li>
+			<li class="icn_categories"><a href="${pageContext.request.contextPath}/message/querymsg/0/5">查看留言</a></li>
 		</ul>
 
 		<div>

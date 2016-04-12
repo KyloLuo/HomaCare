@@ -7,6 +7,7 @@
 			+ path + "/";
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,9 +21,14 @@
 		<jsp:include page="../common/sidebar.jsp"></jsp:include>
 	</div>
 	<div id="main_content">
-		<c:import url="/communityNews/query/0/9">
-		</c:import>
-	</div>
+		
+			<div id="content">
+				<div class="articletitle">${queryseinfocontent.title}</div>
+				<div class="dateandauthor">日期：<fmt:formatDate value="${queryseinfocontent.releaseTime}" pattern="yyyy-MM-dd  HH:MM"/>
+					【信息来源】作者：${queryseinfocontent.source}</div>
+				<div id="articlecontent">${queryseinfocontent.content}</div>
+			</div>
 	
+	</div>
 </body>
 </html>

@@ -141,12 +141,12 @@ public class CommunityNewsController {
 	/* 以下是后台数据相关跳转 */
 
 	// 新建动态的链接
-	@RequiresRoles("admin")
+	@RequiresRoles(value = "admin")
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String startAddNews() {
-		return "admin/news/addInfo";
+		return "admin/news/addnews";
 	}
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 	// 后台数据提交跳转到的成功界面
 	@RequiresRoles("admin")
 	@RequestMapping(value = "/success", method = RequestMethod.GET)
@@ -154,12 +154,6 @@ public class CommunityNewsController {
 		return "admin/common/success";
 	}
 
-	// 查看的链接
-	@RequiresRoles("admin")
-	@RequestMapping(value = "/query", method = RequestMethod.GET)
-	public String queryNews() {
-		return "admin/news/queryallnews";
-	}
 
 	// 查看链接的分页部分
 	@RequiresRoles("admin")

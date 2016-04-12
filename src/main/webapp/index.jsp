@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,8 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <link rel="stylesheet" href="<%=basePath %>css/bootstrap.min.css">
     <link rel="stylesheet" href="<%=basePath %>css/index.css">
-    <script src="<%=basePath %>js/jquery-2.1.1.min.js"></script>
-    <script src="<%=basePath %>js/bootstrap.min.js"></script>
+
     
 
 </head>
@@ -34,10 +33,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="menuboxchoice">
 				<a class="title" href="#" > 首页</a> 
 				<a class="title" href="/Home-BasedCare/communityNews/listNews/0/15" >社区动态</a> 
-				<a class="title" href="#" >服务信息</a> 
+				<a class="title" href="/Home-BasedCare/annoucement/list/0/15" >服务信息</a> 
 				<a class="title" href="/Home-BasedCare/healthTip/listtips/0/15" >健康知识</a> 
-				<a class="title" href="#" >文化娱乐</a> 
-				<a class="title" href="#" >个人登录</a> 
+				<a class="title" href="/Home-BasedCare/recreationInfo/list/0/15" >文化娱乐</a> 
+				<a class="title" href="/Home-BasedCare/user/skiptologin" >个人登录</a> 
 				</div>
 			</div>
 		</div>
@@ -100,49 +99,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
               <!--服务信息 -->
 			  <div class="serviceinfo">
-				  <div class="column" >
-				    <em>服务信息</em>
-				     <a class="a" href="#">>>更多</a>
-				  </div>
-				  <hr class="firstline" />
-				  <ul style="padding-right: 4px">
-					<li><a class="b"  href="#" >奔驰总设计师：设计不会因技术进步更改</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b"  href="#" >咒语吗？日本网友看中文元素周期表崩溃</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b" href="#" >很有文化品味的意大利海边小村庄</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b" href="#" >Angelababy组LOL队 4连胜摆脱青铜段位</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b"  href="#" >iPhone也将加入苹果官翻行列：敢买吗？</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b" href="#" >专访《少年四大名捕》演员钱泳辰</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-				</ul>
+					<c:import url="/annoucement/some/6">
+		    	    </c:import>
 		     </div>
 			
 			    <!--健康知识  -->
@@ -153,49 +111,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			 <!--文化娱乐  -->
 			  <div class="culture">
-				  <div class="column" >
-				    <em>文化娱乐</em>
-				     <a class="a" href="#">>>更多</a>
-				 </div>
-				 <hr class="firstline" />
-				 <ul style="padding-right: 4px">
-					<li><a class="b"  href="#" >奔驰总设计师：设计不会因技术进步更改</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b"  href="#" >咒语吗？日本网友看中文元素周期表崩溃</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b" href="#" >很有文化品味的意大利海边小村庄</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b" href="#" >Angelababy组LOL队 4连胜摆脱青铜段位</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b"  href="#" >iPhone也将加入苹果官翻行列：敢买吗？</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-					<li><a class="b" href="#" >专访《少年四大名捕》演员钱泳辰</a>
-					 <div class="timelocate">
-				      <span >2015.3.31</span>
-				     </div>
-					</li>
-					<hr class="remainline"/>
-				</ul>
+				 <c:import url="/recreationInfo/some/6">
+		    	    </c:import>
 		   </div>
 	  </div>
    </div>	
@@ -208,4 +125,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 </body>
+
+    <script src="<%=basePath %>js/jquery-2.1.1.min.js"></script>
+    <script src="<%=basePath %>js/bootstrap.min.js"></script>
+
 </html>

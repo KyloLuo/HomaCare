@@ -17,8 +17,16 @@
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 <link rel="stylesheet" href="<%=basePath %>css/button.css">
+<link rel="stylesheet" href="<%=basePath %>css/layout.css" type="text/css" media="screen" />
+
 </head>
 <body>
+	<div id="head_content">
+		<jsp:include page="../common/head.jsp"></jsp:include>
+	</div>
+	<div id="sidebar_content">
+		<jsp:include page="../common/sidebar.jsp"></jsp:include>
+	</div>
 	<div id="listinfo_div">
     	<div id="info_div">
     		<ul >

@@ -78,7 +78,7 @@
 			 },
 			 submitHandler: function(form){
 				 $.ajax({
-						url : '/Home-BasedCare/communityNews',
+						url : '/Home-BasedCare/recreationInfo/create',
 						type : 'POST',
 						contentType : 'application/json',
 						dataType : 'json',
@@ -88,7 +88,7 @@
 							window.location.href = "/Home-BasedCare/communityNews/success";
 						},
 						error : function(status) {
-							comsole.log("failure");
+							console.log("failure");
 						}
 					});
 			 }
@@ -121,8 +121,8 @@
 		function com(){
 			var json= {
 			 "title":$("#title").val(),
-		     "article": editor.getContent(),
-			 "authorName":$("#author").val()
+		     "content": editor.getContent(),
+			 "source":$("#author").val()
 			};
 			return json;
 		}

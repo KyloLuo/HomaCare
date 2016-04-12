@@ -69,6 +69,20 @@ span.dexing{
 	color: white;
 	font-size: 25pt;
 }
+.user{
+	float: right;
+	width: 100px;
+	color: white;
+	height: 80%;
+	padding-top: 15px;
+}
+.currentplace{
+	position: relative;
+	width: 20%;
+	height:30px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
 </style>
 </head>
 <body>
@@ -77,16 +91,18 @@ span.dexing{
 			<img src="<%=basePath %>img/titlephoto.png" width="100%" height="100%" />
 		</div>
 		<div class="menu">
-			<div class="menubox">
+			<div class="menubox" style="display: inline-block;margin-left: 20%">
 				<div class="menuboxchoice">
 				<a class="title" href="#" > 首页</a> 
 				<a class="title" href="/Home-BasedCare/communityNews/listNews/0/15" >社区动态</a> 
-				<a class="title" href="#" >服务信息</a> 
+				<a class="title" href="/Home-BasedCare/annoucement/list/0/15" >服务信息</a> 
 				<a class="title" href="/Home-BasedCare/healthTip/listtips/0/15" >健康知识</a> 
-				<a class="title" href="#" >文化娱乐</a> 
-				<a class="title" href="/Home-BasedCare/user/skiptologin" >个人登录</a> 
+				<a class="title" href="/Home-BasedCare/recreationInfo/list/0/15" >文化娱乐</a> 
+				<a class="title" href="/Home-BasedCare/user/skiptologin" >个人登录</a>
+				 
 				</div>
 			</div>
+			<div class="user">欢迎:${sessionScope.user.realName}</div>
 		</div>
 		<hr >
 	</div>
@@ -97,11 +113,11 @@ span.dexing{
 		</div>
 		<div class="middle-personsidebar">
 			<ul class="personallist">
-				<li ><a class="b"  href="#" ><span style="font-size: 12pt">基本信息</span></a></li>
+				<li ><a class="b"  href="/Home-BasedCare/user/skipBasicInfo" ><span style="font-size: 12pt">基本信息</span></a></li>
 				<hr/>
-				<li ><a class="b"  href="#" ><span style="font-size: 12pt">信息档案</span></a></li>
+				<li ><a class="b"  href="/Home-BasedCare/healthProfile/${sessionScope.user.id}" ><span style="font-size: 12pt">信息档案</span></a></li>
 				<hr/>
-				<li ><a class="b"  href="#" ><span style="font-size: 12pt">在线留言</span></a></li>
+				<li ><a class="b"  href="/Home-BasedCare/message/skip" ><span style="font-size: 12pt">在线留言</span></a></li>
 				<hr/>
 			</ul>
 		</div>

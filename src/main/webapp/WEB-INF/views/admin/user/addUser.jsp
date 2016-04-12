@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" href="<%=basePath %>css/bootstrap.min.css" type="text/css"
 	media="screen" />
@@ -17,7 +17,8 @@
 	media="screen" />
 <link rel="stylesheet" href="<%=basePath %>css/layout.css" type="text/css"
 	media="screen" />	
-
+	<script src="<%=basePath%>js/jquery-2.1.1.min.js"></script>	
+	<script src="<%=basePath%>js/jquery.validate.js"></script>	
 
 
 
@@ -66,7 +67,7 @@
 	position: relative;
 	margin:0 auto;
 	width: 80%;
-	height: 750px;
+	height: 850px;
 	padding-top: 5px;
 	border-style:solid;
 	border-radius:5px;
@@ -148,7 +149,7 @@ span.attribute{
 }
 .marriage{
 	display: inline-block;
-	width: 150px;
+	width: 300px;
 	height: 30px;
 	padding-left: 20px;
 }
@@ -187,9 +188,14 @@ span.attribute{
 	<div id="infotitle">基本信息</div>
 	<form id="basicform">
 		<div id="basicinfo">
+		  <div class="eachinfo_div" style="width: 50%">
+			<span class="attribute" >身份证</span>
+			<input type="text" class="form-control" style="width: 200px" id="id" />
+		  </div>
+		  
 		  <div class="eachinfo_div">
 			<span class="attribute">姓名</span>
-			<input type="text" class="form-control" id="realname" />
+			<input type="text" class="form-control"  id="realname" />
 		  </div>
 		  <div class="eachinfo_div">
 			<span class="attribute">密码</span>
@@ -223,11 +229,13 @@ span.attribute{
 		 	<span class="attribute">出生地</span>
 		 	<input type="text" style="width: 110px" id="birthPlace">
 		 </div>
-		 <div class="eachinfo_div" style="width: 300px">
+		 <div class="eachinfo_div" style="width: 550px;margin-left: 20%">
 			<span class="attribute">婚姻状况</span>
 			<div class="marriage">
 			<input type="radio" checked="checked" name="marriage" id="married" value="已婚">&nbsp;&nbsp;<span style="font-size: 12pt">已婚</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- 			<input type="radio"  name="marriage" id="unmarried" value="未婚"><span style="font-size: 12pt">未婚</span>		
+ 			<input type="radio"  name="marriage" id="unmarried" value="未婚"><span style="font-size: 12pt">未婚</span>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+		    <input type="radio"  name="marriage" id="liyi" value="离异"><span style="font-size: 12pt">离异</span>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    <input type="radio"  name="marriage" id="sangou" value="丧偶"><span style="font-size: 12pt">丧偶</span>
 		    </div>
 		</div>
 		  <div class="occ">
@@ -235,13 +243,14 @@ span.attribute{
 		 	<input type="text" style="width: 110px" id="occupation">
 		 </div>
 		 <div class="occ">
-		 	<span class="attribute">受教育水平</span>
+		 	<span class="attribute">文化程度</span>
 		 	<select id="se2"style="width: 90px;height: 30px">
+				<option style="width: 90px;height: 30px">文盲</option>
 				<option style="width: 90px;height: 30px">小学</option>
 				<option style="width: 90px;height: 30px">初中</option>
 				<option style="width: 90px;height: 30px">高中</option>
-				<option style="width: 90px;height: 30px">本科</option>
-				<option style="width: 90px;height: 30px">本科以上</option>
+				<option style="width: 90px;height: 30px">大专</option>
+				<option style="width: 90px;height: 30px">本科及以上</option>
 			</select>
 		 </div>
 		  <div class="occ" style="width: 300px;">
@@ -263,13 +272,7 @@ span.attribute{
 		
 	
 	
-<script src="<%=basePath%>js/back/jquery-1.5.2.min.js"></script>	
-<script src="<%=basePath%>js/back/jquery.js"></script>
-<script src="<%=basePath%>js/back/jquery.validate.js"></script>
-<script src="<%=basePath%>js/test/application.js"></script>
-<script src="<%=basePath%>js/test/flat-ui.min.js"></script>	
-<script src="<%=basePath%>js/test/jquery.min.js"></script>
-<script src="<%=basePath%>js/test/video.js"></script>		
+		
 	<script type="text/javascript">
 	//input框为空的判断 
 	 $().ready(function() {
@@ -278,14 +281,15 @@ span.attribute{
 						url : '/Home-BasedCare/user/create',
 						type : 'POST',
 						contentType : 'application/json',
-						dataType : 'json',
+						async:false,
 						data:JSON.stringify(com()),
-						success : function(data) {
-							console.log(data);
-							window.location.href = "/Home-BasedCare/healthTip/success";
+						success : function() {
+							window.location.href = "/Home-BasedCare/user/success";
+							alert("添加成功!");
+							
 						},
 						error : function(status) {
-							console.log("failure");
+							alert("添加失败！");
 						}
 					});
 			 });
@@ -295,6 +299,7 @@ span.attribute{
 		function com(){
 			console.log("hahhaahahh")
 			var json= {
+			 "id":$("#id").val(),
 			 "realName":$("#realname").val(),
 			 "password":$("#password").val(),
 			 "sex":$('input:radio[name="human"]:checked').val(),

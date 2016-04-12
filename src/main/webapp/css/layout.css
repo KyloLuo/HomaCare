@@ -473,8 +473,9 @@ margin-top: 20%;
 }
 /*点击查看按钮中的主界面的样式*/
 #listinfo_div{
+	float:right;
 	position: relative;
-	width: 100%;
+	width: 77%;
 	height: 100%;
 }
 #info_div{
@@ -502,6 +503,15 @@ margin-top: 20%;
 .info_title_div{
 	display: inline-block;
 	width: 50%;
+	height: 60%;
+	padding-top: 10px;
+	font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", Heiti, "黑体",
+		"Microsoft YaHei", "微软雅黑", SimSun, "宋体", sans-serif;
+	font-size:12pt;
+}
+.info_userinfo_div{
+	display: inline-block;
+	width: 20%;
 	height: 60%;
 	padding-top: 10px;
 	font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", Heiti, "黑体",

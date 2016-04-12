@@ -1,11 +1,22 @@
 package com.eagle.community.user.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -18,6 +29,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eagle.community.dao.BaseDaoImpl;
+import com.eagle.community.news.entity.CommunityNews;
+import com.eagle.community.user.entity.Pagination;
 import com.eagle.community.user.entity.Child;
 import com.eagle.community.user.entity.User;
 import com.eagle.community.user.service.UserService;
@@ -56,7 +69,20 @@ public class UserController {
 	@RequestMapping(value="/create",method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody User createUser(@RequestBody User user) {
-		user.setBitrhday(new Date(System.currentTimeMillis()));
+		System.out.println(user.getBitrhday());
+		//user.setBitrhday(new Date(System.currentTimeMillis()));
+		//String s = new SimpleDateFormat("yyyy-MM-dd").format(user.getBitrhday());
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		String s=sdf.format(user.getBitrhday());
+
+
+		try {
+			user.setBitrhday(sdf.parse(s)); 
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		System.out.println(user);
 		User temp = userService.createUser(user);
 		return temp;
 	}
@@ -70,14 +96,56 @@ public class UserController {
 		return temp;
 	}
 
+	//跳转到添加子女信息
+	@RequiresRoles(value = "admin")
+	@RequestMapping(value = "/skiptoadd/{userid}", method = RequestMethod.GET)
+	public ModelAndView startAddHeathlProfile(@PathVariable("userid") String userid,HttpSession session) {
+		ModelAndView hp = new ModelAndView("admin/user/addchildinfo");
+		//hp.addObject("userid",userid);
+		session.setAttribute("userid", userid);
+		System.out.println("-------"+userid);
+		return hp;
+	}
+	
 	// 为某个用户添加子女信息
 	@RequiresRoles("admin")
-	@RequestMapping(value = "/{id}/addChild", method = RequestMethod.POST)
+	@RequestMapping(value = "/addChild", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody User addChild(@PathVariable("id") String id,
-			@RequestBody Child childs) {
+	public @ResponseBody User addChild(@RequestBody Child childs,HttpSession session) {
+		String id = (String) session.getAttribute("userid");
+		System.out.println("第二次"+id);
 		return userService.addChildForUser(id, childs);
 	}
+	
+	// 查看子女信息
+		@RequiresRoles("admin")
+		@RequestMapping(value = "/querychild/{id}", method = RequestMethod.GET)
+		@ResponseStatus(HttpStatus.OK)
+		public  ModelAndView queryChild(@PathVariable String id) {
+			ModelAndView model = new ModelAndView("admin/user/childquery");
+			System.out.println("子女信息"+id);
+			User user = userService.findUserById(id);
+
+			if(user.getChildren().size()!=0){
+				System.out.println(user.getChildren().size());
+				Set<Child> set = user.getChildren();
+				Iterator<Child> it = set.iterator();
+				while(it.hasNext()){
+					Child child = it.next();
+					model.addObject("childinfo",child);
+					System.out.println(child);
+				}
+				
+			}
+			return model;
+		}
+	
+		//添加成功
+		@RequiresRoles("admin")
+		@RequestMapping(value = "/success", method = RequestMethod.GET)
+		public String getSuccess() {
+			return "admin/common/success";
+		}
 
 	// 修改某个用户的某个子女的信息
 	@RequiresRoles("admin")
@@ -89,6 +157,104 @@ public class UserController {
 		return user;
 	}
 
+	//添加用户主界面的跳转
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String startAddUser(){
+		return "/admin/user/addUser";
+	}
+	
+
+		
+		// 查看链接的分页部分
+		@RequiresRoles("admin")
+		@RequestMapping(value = "/query/{currentPage}/{pageSize}", method = RequestMethod.GET)
+		public ModelAndView queryNews(@PathVariable("currentPage") int currentPage,
+				@PathVariable("pageSize") int pageSize) {
+			ModelAndView view = new ModelAndView("admin/user/alistusers");
+			Pagination pagination = userService.getUsers(currentPage,
+					pageSize);
+			view.addObject("admin_userInfo_pageInfo", pagination);
+			return view;
+		}	
+		
+		// 具体查看某用户信息
+		@RequiresRoles("admin")
+		@RequestMapping(value = "/queryuser/{id}", method = RequestMethod.GET)
+		public ModelAndView queryNews(@PathVariable("id") String id) {
+			ModelAndView view = new ModelAndView("admin/user/userquery");
+			User user = userService.findUserById(id);
+			String userid,childid;
+			if(user.getHealthProfile()!=null){
+				userid = user.getHealthProfile().getUserId();
+			}else
+				userid="0";
+			if(user.getChildren().size()!=0){
+				childid="1";
+			}
+			else
+				childid="0";
+			view.addObject("queryusercontent", user);
+			view.addObject("hpuserid",userid);
+			view.addObject("childid",childid);
+			return view;
+		}
+		
+		// 删除某用户
+//		@RequiresRoles(value = "admin")
+//		@RequestMapping(value = "/deleteuser/{id}", method = RequestMethod.POST)
+//		@ResponseStatus(value = HttpStatus.OK)
+//		public String deleteNews(@PathVariable("id") String id) {
+//			User user = userService.findUserById(id);
+//			if (user != null) {
+//				if (userService.) {
+//					logger.info("delete communityNews success");
+//					return "delsuccess";
+//				}
+//				else {
+//					logger.info("delete communityNews failed");
+//					return "delfailure";
+//				}
+//			}
+//
+//			return "delfailure";
+//		}
+		
+		
+   //////////////
+  //以下是前台界面的跳转
+		@RequestMapping(value = "/skiptologin", method = RequestMethod.GET)
+		public String skip(){
+			return "/main/personpart/personlogin";
+		}
+
+		//点击查看信息实现的跳转
+		@RequestMapping(value="/skipBasicInfo",method= RequestMethod.GET)
+		public String skipToBI(){
+			return "main/personpart/personbasicinfo";
+		}
+		
+		@RequestMapping(value = "/login", method = RequestMethod.POST)
+		public String login(String userName, String password,
+				HttpServletRequest request, HttpSession session) {
+			logger.info("/login is invoked");
+			System.out.println(userName);
+			User user = userService.authenticate(userName, password);
+			if(user!=null){
+				session.setAttribute("user", user);
+				if(user.getChildren().size()!=0){
+					Set<Child> set = user.getChildren();
+					Iterator<Child> it =set.iterator();
+					while(it.hasNext()){
+						Child child = it.next();
+						session.setAttribute("child", child);
+					}
+				}
+				return "main/personpart/personmain";
+			}
+			else
+				return "main/personpart/personlogin";
+			}
+	
 	public UserService getUserService() {
 		return userService;
 	}

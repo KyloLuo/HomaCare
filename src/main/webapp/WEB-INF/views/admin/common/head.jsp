@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="header">
 
 		<div class="site_title">
-			<a href="index.html">德兴镇城厢社区</a>
+			<a href="index.html">城厢镇德兴社区</a>
 		</div>
 		<div class="section_title">社区居民健康管理系统</div>
 		<div class="btn_view_site">
@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="secondary_bar">
 		<div class="user">
 			<p>
-				${admin.userName} 
+				${sessionScope.admin}
 			</p>
 			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 		</div>
