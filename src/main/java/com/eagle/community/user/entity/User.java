@@ -71,7 +71,6 @@ public class User implements Serializable{
 	private String address;
 
 	@Column(name = "phone_num", length = 14)
-	@Pattern(regexp = "^13\\d{9}|14[57]\\d{8}|15[012356789]\\d{8}|18[01256789]\\d{8}|170\\d{8}$", message = "手机号码格式不正确")
 	private String phoneNum;
 
 	@ManyToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)

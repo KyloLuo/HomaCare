@@ -228,7 +228,7 @@ span.attribute{
 						data:JSON.stringify(com()),
 						success : function(data) {
 							alert("添加成功!");
-							window.location.href = "/Home-BasedCare/communityNews/success";
+							window.location.href = "/Home-BasedCare/user/queryuser/id";
 						},
 						error : function(status) {
 							alert("failure");

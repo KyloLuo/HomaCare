@@ -217,7 +217,7 @@ span.attribute{
 		  </div>
 		  <div class="birline">
 		  	<span class="attribute">出生日期</span>
-		  	<input type="text" style="width: 90px" id="time">&nbsp;&nbsp;如1994-11
+		  	<input type="text" style="width: 90px" id="time">&nbsp;&nbsp;如1994-11-06
 		  	
 		  </div>
 		

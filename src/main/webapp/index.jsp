@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <div class="foot">
 		<div class="footbasic">
 		  <div class="footbasicinfo">
-		         <span style="color: white;">版权所有：太仓市城厢镇德兴社区　Copyright @ 2012-2014 All Rights Reserved 　苏ICP备10218904号 </span>
+		         <span style="color: white;">版权所有：太仓市城厢镇德兴社区　Copyright @ 2015-2016 All Rights Reserved 　苏ICP备10218904号 </span>
 		  </div>
 		</div>
 	</div>

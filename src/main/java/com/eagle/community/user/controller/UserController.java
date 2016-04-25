@@ -72,7 +72,7 @@ public class UserController {
 		System.out.println(user.getBitrhday());
 		//user.setBitrhday(new Date(System.currentTimeMillis()));
 		//String s = new SimpleDateFormat("yyyy-MM-dd").format(user.getBitrhday());
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		String s=sdf.format(user.getBitrhday());
 
 

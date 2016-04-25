@@ -219,7 +219,7 @@ span.attribute{
 		  </div>
 		  <div class="birline">
 		  	<span class="attribute">出生日期</span>
-		  	<input type="text" style="width: 88px" id="time" value="${queryusercontent.bitrhday}" pattern="yyyy-MM" disabled="disabled">&nbsp;&nbsp;
+		  	<input type="text" style="width: 88px" id="time"  value="<fmt:formatDate value="${queryusercontent.bitrhday}" pattern="yyyy-MM-dd"/>" disabled="disabled">&nbsp;&nbsp;
 		  	
 		  </div>
 		

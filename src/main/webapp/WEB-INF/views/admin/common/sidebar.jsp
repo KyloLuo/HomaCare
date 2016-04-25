@@ -48,14 +48,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<ul class="toggle">
 			<li class="icn_add_user"><a href="${pageContext.request.contextPath}/user/add">新添用户</a></li>
-			<li class="icn_profile"><a href="${pageContext.request.contextPath}/user/query/0/7">查看用户</a></li>
+			<li class="icn_profile"><a href="${pageContext.request.contextPath}/user/query/0/8">查看用户</a></li>
 			<li class="icn_categories"><a href="${pageContext.request.contextPath}/message/querymsg/0/5">查看留言</a></li>
 		</ul>
 
 		<div>
 			<hr />
 		
-			<div class="copyright" style="font-size:15pt;color:#34495e;line-height:1">版权所有：太仓市城厢镇德兴社区 Copyright @ 2012-2014 All Rights
+			<div class="copyright" style="font-size:15pt;color:#34495e;line-height:1">版权所有：太仓市城厢镇德兴社区 Copyright @ 2015-2016 All Rights
 					Reserved 苏ICP备10218904号</div>
 			
 		</div>

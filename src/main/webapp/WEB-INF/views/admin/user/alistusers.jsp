@@ -47,15 +47,15 @@
     	</div>
     
     		<div id="pageinfo_div">
-	 		<a id="first" style="color: black;" href="/Home-BasedCare/user/query/0/7">首页</a> 
+	 		<a id="first" style="color: black;" href="/Home-BasedCare/user/query/0/8">首页</a> 
             <a id="former" style="color: black;"
-					href="/Home-BasedCare/user/query/${admin_userInfo_pageInfo.currentPage-1}/7">上一页</a>
+					href="/Home-BasedCare/user/query/${admin_userInfo_pageInfo.currentPage-1}/8">上一页</a>
 	 	    <a id="next" style="color: black;"
-					href="/Home-BasedCare/user/query/${admin_userInfo_pageInfo.currentPage+1}/7">下一页</a>
+					href="/Home-BasedCare/user/query/${admin_userInfo_pageInfo.currentPage+1}/8">下一页</a>
 	 		<a id="last" style="color: black;"
-					href="/Home-BasedCare/user/query/${admin_userInfo_pageInfo.totalPages-1}/7">尾页</a>&nbsp;&nbsp;
+					href="/Home-BasedCare/user/query/${admin_userInfo_pageInfo.totalPages-1}/8">尾页</a>&nbsp;&nbsp;
 	 		<span >共${admin_userInfo_pageInfo.totalCount}条</span>&nbsp;
-	 	    <span >每页显示7条</span>&nbsp;
+	 	    <span >每页显示8条</span>&nbsp;
 	 	    <span>第${admin_userInfo_pageInfo.currentPage+1}页</span>&nbsp;
 	       </div>
     </div>
