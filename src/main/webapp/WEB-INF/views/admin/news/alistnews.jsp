@@ -66,7 +66,7 @@
 			url : '/Home-BasedCare/communityNews/deletenews/'+newsid,
 			type : 'POST',
 			success : function(data) {
-				console.log("success");
+				alert("删除成功！");
 				window.location.href = "/Home-BasedCare/communityNews/delsuccess";
 			},
 			error : function(status) {

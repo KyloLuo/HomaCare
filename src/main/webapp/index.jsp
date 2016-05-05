@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a class="title" href="/Home-BasedCare/annoucement/list/0/15" >服务信息</a> 
 				<a class="title" href="/Home-BasedCare/healthTip/listtips/0/15" >健康知识</a> 
 				<a class="title" href="/Home-BasedCare/recreationInfo/list/0/15" >文化娱乐</a> 
-				<a class="title" href="/Home-BasedCare/user/skiptologin" >个人登录</a> 
+				<a class="title" href="/Home-BasedCare/user/skiptologin" >信息查询</a> 
 				</div>
 			</div>
 		</div>

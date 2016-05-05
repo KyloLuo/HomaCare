@@ -248,7 +248,7 @@ a.location {
 						<li class="titleli"><a class="title" href="/Home-BasedCare/annoucement/list/0/15">服务信息</a></li>
 						<li class="titleli"><a class="title" href="/Home-BasedCare/healthTip/listtips/0/15">健康知识</a></li>
 						<li class="titleli"><a class="title" href="/Home-BasedCare/recreationInfo/list/0/15">文化娱乐</a></li>
-						<li class="titleli"><a class="title" href="/Home-BasedCare/user/skiptologin">个人登录</a></li>
+						<li class="titleli"><a class="title" href="/Home-BasedCare/user/skiptologin">信息查询</a></li>
 					</ul>
 				</div>
 			</div>

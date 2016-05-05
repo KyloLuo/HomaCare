@@ -233,6 +233,11 @@ public class UserController {
 			return "main/personpart/personbasicinfo";
 		}
 		
+		@RequestMapping(value="/skipChildBasicInfo",method= RequestMethod.GET)
+		public String skipToCBI(){
+			return "main/personpart/childbasicinfo";
+		}
+		
 		@RequestMapping(value = "/login", method = RequestMethod.POST)
 		public String login(String userName, String password,
 				HttpServletRequest request, HttpSession session) {
